@@ -4,6 +4,13 @@ on:
     branches:
       - main
 jobs:
+<<<<<<< HEAD
+  check-secret:
+    runs-on: ubuntu-latest
+    outputs:
+      aws-creds-defined: ${{ steps.aws-creds-defined.outputs.DEFINED }}
+      kubeconfig-defined: ${{ steps.kubeconfig-defined.outputs.DEFINED }}
+=======
   check-kubernetes-enabled:
     runs-on: ubuntu-latest
     outputs:
@@ -22,6 +29,7 @@ jobs:
       aws-creds-defined: ${{ steps.aws-creds-defined.outputs.DEFINED }}
       kubeconfig-defined: ${{ steps.kubeconfig-defined.outputs.DEFINED }}
     if: needs.check-kubernetes-enabled.outputs.kubernetes-enabled == 'true'
+>>>>>>> 8eea1fe034c61070db17a924a890a31e9a915acc
     steps:
       - id: aws-creds-defined
         if: "${{ env.AWS_ACCESS_KEY_ID != '' && env.AWS_SECRET_ACCESS_KEY != '' }}"
