@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   anythink-backend-node:
     build: ./backend
@@ -15,9 +15,9 @@ services:
       - ./:/usr/src/
       - /usr/src/backend/node_modules
     ports:
-      - '3000:3000'
+      - "3000:3000"
     depends_on:
-      - 'mongodb-node'
+      - "mongodb-node"
 
   anythink-frontend-react:
     build: ./frontend
@@ -33,9 +33,9 @@ services:
       - ./:/usr/src/
       - /usr/src/frontend/node_modules
     ports:
-      - '3001:3001'
+      - "3001:3001"
     depends_on:
-      - 'anythink-backend-node'
+      - "anythink-backend-node"
 
   mongodb-node:
     container_name: mongodb-node
@@ -46,4 +46,4 @@ services:
     volumes:
       - ~/mongo/data:/data/db
     ports:
-      - '27017:27017'
+      - "27017:27017"
