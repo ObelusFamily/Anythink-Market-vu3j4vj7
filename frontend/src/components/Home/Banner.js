@@ -1,38 +1,36 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import logo from "../../imgs/logo.png";
-import agent from '../../agent';
-import {SEARCH_TITLE} from '../../constants/actionTypes';
+import agent from "../../agent";
+import { SEARCH_TITLE } from "../../constants/actionTypes";
 
 const mapStateToProps = (state) => {
   return {
     ...state.itemList,
   };
-}
+};
 
 const mapDispatchToProps = (dispatch) => ({
   onSearch: (tab, pager, payload) => {
-    dispatch({type: SEARCH_TITLE, tab, pager, payload});
-  }
+    dispatch({ type: SEARCH_TITLE, tab, pager, payload });
+  },
 });
 
-
 const Banner = (props) => {
-  const [searchValue, setSearchValue] = useState("")
+  const [searchValue, setSearchValue] = useState("");
 
   const handleSearch = async (e) => {
     setSearchValue(e.target.value);
 
-    if(e.target.value.length >= 3) {
+    if (e.target.value.length >= 3) {
       props.onSearch(
-        'all',
+        "all",
         agent.Items.search,
         agent.Items.search(searchValue)
       );
     }
-  }
-
+  };
 
   return (
     <div className="banner text-white">
@@ -43,7 +41,7 @@ const Banner = (props) => {
           <span id="get-part">get</span>
 
           <div className="search__container">
-            <input 
+            <input
               id="search__input"
               type="text"
               placeholder="Tell me what you're looking for..."
