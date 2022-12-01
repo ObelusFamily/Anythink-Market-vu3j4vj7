@@ -42,7 +42,7 @@ const Banner = (props) => {
 
           <div className="search__container">
             <input
-              id="search__input"
+              id="search-box"
               type="text"
               placeholder="Tell me what you're looking for..."
               value={searchValue}
